@@ -22,10 +22,11 @@ class NhanVien():
         self.dia_chi = dia_chi
         self.id_don_vi = id_don_vi
 
-    def in_thong_tin(self):
+    def __str__(self):
         gioi_tinh = ""
         if self.gioi_tinh == "true":
             gioi_tinh = "nam"
         else:
             gioi_tinh = "Nu"
         return self.idnv + "-" + self.ho_ten + "-" + self.gioi_tinh + "-" + self.ngay_sinh + "-" + self.cmnd + "-" + self.muc_luong + "-" + self.dia_chi + "-" + self.id_don_vi
+

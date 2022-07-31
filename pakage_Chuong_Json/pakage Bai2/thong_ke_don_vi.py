@@ -30,19 +30,34 @@ def tao_danh_sach_nhan_vien(list_nhan_vien):
             list_nhan_vien.append(nv)
     return
 
+
 def thong_ke_don_vi(iddv, list_nhan_vien):
     count = 0
     so_nam = 0
     so_nu = 0
     for nv in list_nhan_vien:
-        if (int(nv.id_don_vi) == iddv):
+        if int(nv.id_don_vi) == iddv:
             print(nv.id_don_vi, "-", nv.ho_ten, "-", nv.cmnd)
             count += 1
-            if (nv.gioi_tinh == 'true'):
+            if nv.gioi_tinh == 'true':
                 so_nam += 1
             else:
                 so_nu += 1
-    print("Tong so nhan vien", count, "- Trong do co: ", so_nam, "nam, va ", so_nu, "nu"  )
+    print("Tong so nhan vien", count, "- Trong do co: ", so_nam, "nam, va ", so_nu, "nu")
+
+
+def tim_kiem_nhan_vien(ten, list_nhan_vien):
+    count = 0
+    nv_s = []
+    for nv in list_nhan_vien:
+        try:
+            if nv.ho_ten.lower().find(ten.lower()) != -1:
+                count += 1
+                nv_s.append(nv.ho_ten)
+        except:
+            return
+    return nv_s
+
 
 if __name__ == "__main__":
     list_don_vi = []
@@ -51,4 +66,4 @@ if __name__ == "__main__":
     tao_danh_sach_nhan_vien(list_nhan_vien)
     iddv = int(input("ban muon xem thong tin don vi (nhap so): \t"))
     print("Ket qua thong ke")
-    print(iddv, thong_ke_don_vi(iddv, list_nhan_vien))
+    print(tim_kiem_nhan_vien('phí', list_nhan_vien))
