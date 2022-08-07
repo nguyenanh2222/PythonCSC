@@ -20,7 +20,8 @@ class GiaoDich():
 
     def __str__(self):
         _str = " - "
-        return self.ma_gd + _str +str(self.ngay_gd) + _str  + str(self.loai) + _str + str(self.so_luong) + _str + str(self.don_gia) + str(self.thanh_tien)
+        return self.ma_gd + _str +str(self.ngay_gd) + _str  + str(self.loai) + _str + str(
+            self.so_luong) + _str + str(self.don_gia) + str(self.thanh_tien)
 
 class GiaoDichTienTe(GiaoDich):
     def __init__(self,
@@ -29,9 +30,16 @@ class GiaoDichTienTe(GiaoDich):
                  ngay_gd: str,
                  so_luong: int,
                  don_gia: Decimal):
-        super().__init__(loai, ma_gd, ngay_gd, so_luong, don_gia)
+        super().__init__(loai, ma_gd, ngay_gd, so_luong, don_gia, kieu_giao_dich)
         self.thanh_tien = self.don_gia * self.so_luong
         self.loai = str
+        self.kieu_giao_dich = kieu_giao_dich
+
+    def __str__(self):
+        _str = " - "
+        return self.ma_gd + _str + str(self.ngay_gd) + _str + str(self.loai) + _str + str(
+            self.so_luong) + _str + str(self.don_gia) + str(self.thanh_tien)
+
 
 if __name__ == '__main__':
     q = int(input())
@@ -74,9 +82,9 @@ if __name__ == '__main__':
             tong_thanh_tien_giao_dich = 0
             for giao_dich in list_giao_dich_tien:
                 tong_loai_giao_dich += giao_dich.loai
-                kieu_giao_dich = int(input("Ban chon mua hay ban: (1: Co), (0: khong)"))
+                kieu_giao_dich = int(input("Ban chon mua hay ban: (1: mua), (0: ban)"))
                 if kieu_giao_dich == 1:
-                    ...
+
                 elif kieu_giao_dich == 0:
                     ...
                 tong_thanh_tien_giao_dich += giao_dich.thanh_tien
