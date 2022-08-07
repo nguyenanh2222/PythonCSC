@@ -63,20 +63,24 @@ if __name__ == '__main__':
         elif loai_giao_dich == 2:
             loai = input("Chon loai USD/ EUR/ AUD: ")
             don_gia = Decimal(input("Nhap ty gia: "))
-            loai_giao_dich_tien= input("Ban chon mua hay ban")
-            if loai_giao_dich_tien == 'mua':
-                giao_dich_tien= GiaoDich(ma_gd=ma_gd,
-                                    ngay_gd=ngay_gd,
-                                    so_luong=so_luong,
-                                    loai=loai,
-                                    don_gia=don_gia)
-            list_giao_dich_vang = []
-            list_giao_dich_vang.append(giao_dich_vang)
+            giao_dich_tien= GiaoDich(ma_gd=ma_gd,
+                                ngay_gd=ngay_gd,
+                                so_luong=so_luong,
+                                loai=loai,
+                                don_gia=don_gia)
+            list_giao_dich_tien = []
+            list_giao_dich_tien.append(giao_dich_tien)
             tong_loai_giao_dich = 0
             tong_thanh_tien_giao_dich = 0
-            for giao_dich in list_giao_dich_vang:
+            for giao_dich in list_giao_dich_tien:
                 tong_loai_giao_dich += giao_dich.loai
+                kieu_giao_dich = int(input("Ban chon mua hay ban: (1: Co), (0: khong)"))
+                if kieu_giao_dich == 1:
+                    ...
+                elif kieu_giao_dich == 0:
+                    ...
                 tong_thanh_tien_giao_dich += giao_dich.thanh_tien
+
             print("Tong so luong: ", tong_loai_giao_dich)
             print(("Tong so tien: ", tong_thanh_tien_giao_dich))
 
